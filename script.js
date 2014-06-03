@@ -12,7 +12,7 @@ dict["n"] = {  "title" : "Nihongomaster",
                 "keyword" : "n",
                 "string" : "http://www.nihongomaster.com/dictionary/search/?q=#{query}&type=j" };
 
-var selectedEngine = dict["n"];
+var selectedEngine = dict["g"];
 
 function search(caller) {
     var query = caller.value;
@@ -36,6 +36,6 @@ suchers.addEventListener("keydown", function (e) {
         search(this);       
     }
     if (e.keyCode === 9) {  // TAB
-        
+        document.getElementById("linkasd").focus(); // hack because focus jumps to next field on TAB
     }
 });
