@@ -7,6 +7,20 @@ body {
   background-position: center;
   }
 
+#search {
+  position: fixed;
+  width: 500;
+  left: 50%;
+  margin-left: -200px;
+  border: 2px solid white ;
+}
+
+#search input {
+  background: none;
+  color: white;
+  border: none;
+}
+
 #blurs {
   display:block;
       background-color: white;

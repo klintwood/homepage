@@ -28,6 +28,7 @@ sucher.addEventListener("keydown", function (e) {
         selectedEngine = dict[this.value];
         this.value = dict[this.value]["title"];
     }
+    //console.log(selectedEngine["string"].replace("#{query}", this.value));
 });
 
 var suchers = document.getElementById("suchers");
@@ -38,4 +39,5 @@ suchers.addEventListener("keydown", function (e) {
     if (e.keyCode === 9) {  // TAB
         document.getElementById("linkasd").focus(); // hack because focus jumps to next field on TAB
     }
+    //console.log(selectedEngine["string"].replace("#{query}", this.value));
 });
