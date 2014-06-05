@@ -1,5 +1,5 @@
 body {
-  background-image: url(images/creepy.jpg);
+  background-image: url(images/games.jpg);
   background-size: auto 100%;
   background-attachment: fixed;
   background-position: center;
@@ -20,17 +20,45 @@ body {
 }
 
 ul {
-  background-color: rgba(0, 0, 0, 0.5); 
+  background-color: rgba(200, 200, 200, 0.2); 
   width: 20%;
-  border-radius: 5px;
+  border-radius: 1px;
   padding: 20px;
   list-style-type: none;
+  box-shadow: 0px 0px 10px black;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: Verdana;
 }
 
 a:visited {
-  color: #FF9900;
+  color: #111;
 }
 
 a {
   text-decoration: none;
+}
+
+ul#list1 {
+  
+}
+
+#spielgrube {
+  width: 200px;
+  height: 200px;
+  background-color: rgba(200, 200, 200, 0.2); 
+  border-radius: 200px;
+  box-shadow: 0px 0px 10px black;
+  background-size: auto 100%;
+  background-attachment: fixed;
+  background-position: center;
+  margin: 0 auto;
+  padding: 5px;
+  position: relative;
+}
+
+div img {
+  width: 200px;
+  height: 200px;
+  border-radius: 100px;
 }

@@ -13,7 +13,7 @@ engines["a"] = {  "title" : "Amazon", "keyword" : "a",
 engines["p"] = {  "title" : "Pons", "keyword" : "p",
                 "string" : " http://de.pons.com/%C3%BCbersetzung?q=#{query}&l=deen" };
 
-
+https://www.google.de/maps/search/Osterfeldstr.+30-40/@51.1758057,10.4541194,6z/data=!3m1!4b1
 
     
 
