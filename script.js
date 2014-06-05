@@ -27,7 +27,10 @@ function search(caller) {
 var sucher = document.getElementById("sucher");
 sucher.addEventListener("keydown", function (e) {
     if (e.keyCode === 13) {  // ENTER
-        search(this);       
+        if (this.value.match(/^\S*\.\S*$/))     // if URL entered, redirect
+            window.location = "http://" + this.value;
+        else                                    // otherwise, search
+            search(this);       
     }
     if (e.keyCode === 9) {  // TAB        
         selectedEngine = engines[this.value];
