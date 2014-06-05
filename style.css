@@ -9,14 +9,21 @@ body {
   position: fixed;
   width: 500;
   left: 50%;
-  margin-left: -200px;
-  border: 2px solid white ;
+  margin-left: -200px;  
+  background-color: rgba(200, 200, 200, 0.2);
+  box-shadow: 0px 0px 10px black;
+
 }
 
 #search input {
   background: none;
-  color: white;
+  color: #111;
   border: none;
+  outline-width: 0px;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: Verdana;
+  padding: 5px;
 }
 
 ul {
@@ -44,8 +51,8 @@ ul#list1 {
 }
 
 #spielgrube {
-  width: 200px;
-  height: 200px;
+  width: 100px;
+  height: 100px;
   background-color: rgba(200, 200, 200, 0.2); 
   border-radius: 200px;
   box-shadow: 0px 0px 10px black;
@@ -58,7 +65,7 @@ ul#list1 {
 }
 
 div img {
-  width: 200px;
-  height: 200px;
+  width: 100px;
+  height: 100px;
   border-radius: 100px;
 }
