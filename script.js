@@ -1,18 +1,23 @@
-var dict = {};
+var engines = {};
 
-dict["g"] = {  "title" : "Google",
-                "keyword" : "g",
+engines["g"] = {  "title" : "Google", "keyword" : "g",
                 "string" : "https://www.google.com/#q=#{query}&safe=off" };
-
-dict["y"] = {  "title" : "YouTube",
-                "keyword" : "y",
+engines["y"] = {  "title" : "YouTube", "keyword" : "y",
                 "string" : "https://www.youtube.com/results?search_query=#{query}" };
-
-dict["n"] = {  "title" : "Nihongomaster",
-                "keyword" : "n",
+engines["n"] = {  "title" : "Nihongomaster", "keyword" : "n",
                 "string" : "http://www.nihongomaster.com/dictionary/search/?q=#{query}&type=j" };
+engines["w"] = {  "title" : "Wikipedia", "keyword" : "w",
+                "string" : "http://en.wikipedia.org/w/index.php?title=Special:Search&search=#{query}" };
+engines["a"] = {  "title" : "Amazon", "keyword" : "a",
+                "string" : "http://www.amazon.de/s/url=search-alias%3Daps&field-keywords=#{query}" };
+engines["p"] = {  "title" : "Pons", "keyword" : "p",
+                "string" : " http://de.pons.com/%C3%BCbersetzung?q=#{query}&l=deen" };
 
-var selectedEngine = dict["g"];
+
+
+    
+
+var selectedEngine = engines["g"];
 
 function search(caller) {
     var query = caller.value;
@@ -25,8 +30,8 @@ sucher.addEventListener("keydown", function (e) {
         search(this);       
     }
     if (e.keyCode === 9) {  // TAB        
-        selectedEngine = dict[this.value];
-        this.value = dict[this.value]["title"];
+        selectedEngine = engines[this.value];
+        this.value = engines[this.value]["title"];
     }
     //console.log(selectedEngine["string"].replace("#{query}", this.value));
 });

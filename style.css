@@ -1,11 +1,9 @@
 body {
- /* background-image: url(http://i.imgur.com/iVVJaZe.jpg); 
-  background-image: url(http://i.imgur.com/TPhtMAJ.jpg); */
-  background-image: url(scifi.jpg);
+  background-image: url(images/creepy.jpg);
   background-size: auto 100%;
   background-attachment: fixed;
   background-position: center;
-  }
+}
 
 #search {
   position: fixed;
@@ -19,21 +17,6 @@ body {
   background: none;
   color: white;
   border: none;
-}
-
-#blurs {
-  display:block;
-      background-color: white;
-      position: absolute; top: 0; left: 0; height: 100%; width: 100%;
-      opacity: 0.5;
-
-             -webkit-filter: blur(200px);
-    -moz-filter: blur(105px);
-    -o-filter: blur(105px);
-    -ms-filter: blur(0105px);
-    filter: blur(105px);
- 
-
 }
 
 ul {
