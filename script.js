@@ -27,8 +27,12 @@ function search(caller) {
 var sucher = document.getElementById("sucher");
 sucher.addEventListener("keydown", function (e) {
     if (e.keyCode === 13) {  // ENTER
-        if (this.value.match(/^\S*\.\S*$/))     // if URL entered, redirect
-            window.location = "http://" + this.value;
+        var input = this.value;
+        if (input.match(/^\S*\.\S*$/))     // if URL entered, redirect
+            if (input.match(/^https?:\/\//))             // only add "http://" if not already in input
+                window.location = input;
+            else
+             window.location = "http://" + input;
         else                                    // otherwise, search
             search(this);       
     }
