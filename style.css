@@ -46,8 +46,9 @@ a {
   text-decoration: none;
 }
 
-ul#list1 {
-  
+ul#hacker_news {
+  font-size: 12px;
+  width: 40%;
 }
 
 #spielgrube {
