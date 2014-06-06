@@ -63,7 +63,9 @@ function yourFunction(json) {
         var item = items[i];
         var id = item['id'];
         var title = item['title'];
-        $('ul#hacker_news').append('<li><a href="https://news.ycombinator.com/item?id=' + id + '">' + title + '</a></li>');
+        var comment_count = item['commentCount'];
+        var link = '<a href="https://news.ycombinator.com/item?id=' + id + '">' + title + ' (' + comment_count + ')</a>';
+        $('ul#hacker_news').append('<li>' + link + '</li>');
     }
 }
 

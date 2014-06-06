@@ -38,16 +38,17 @@ ul {
   font-family: Verdana;
 }
 
-a:visited {
-  color: #111;
+#hacker_news a:visited {
+  color: #666;
 }
 
 a {
   text-decoration: none;
+  color: #111;
 }
 
 ul#hacker_news {
-  font-size: 12px;
+  font-size: 10px;
   width: 40%;
 }
 
