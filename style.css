@@ -6,13 +6,16 @@ body {
 }
 
 #search {
-  position: fixed;
-  width: 500;
-  left: 50%;
-  margin-left: -200px;  
+  width: 500px;
   background-color: rgba(200, 200, 200, 0.2);
   box-shadow: 0px 0px 10px black;
 
+  /*position: fixed;
+  left: 50%;
+  margin-left: -250px;  */
+
+  position: relative;
+  margin: 20px auto;
 }
 
 #search input {
@@ -27,7 +30,7 @@ body {
 }
 
 ul {
-  background-color: rgba(200, 200, 200, 0.2); 
+  background-color: rgba(200, 200, 200, 0.35); 
   width: 20%;
   border-radius: 1px;
   padding: 20px;
@@ -48,8 +51,20 @@ a {
 }
 
 ul#hacker_news {
-  font-size: 10px;
-  width: 40%;
+  font-size: 12px;
+  width: 35%;
+  line-height: 20px;
+
+ 
+
+  margin: 20px auto;
+  position: relative; 
+
+}
+
+#list1 {
+    margin: 20px auto;
+    position: relative;
 }
 
 #spielgrube {
@@ -61,7 +76,7 @@ ul#hacker_news {
   background-size: auto 100%;
   background-attachment: fixed;
   background-position: center;
-  margin: 0 auto;
+  margin: 20px auto;
   padding: 5px;
   position: relative;
 }
@@ -70,4 +85,8 @@ div img {
   width: 100px;
   height: 100px;
   border-radius: 100px;
+}
+
+#rain {
+  display: none;
 }
