@@ -162,3 +162,20 @@ function makeHttpObject() {
   throw new Error("Could not create HTTP request object.");
 }
 */
+
+
+// taken from: http://stackoverflow.com/questions/6787374/how-to-display-system-time
+
+function updateTime() {
+        var currentTime = new Date();
+        var hours = currentTime.getHours();
+        var minutes = currentTime.getMinutes();
+        if (minutes < 10){
+            minutes = "0" + minutes;
+        }
+
+        var v = hours + ":" + minutes + " ";
+        setTimeout("updateTime()",1000);
+        document.getElementById('time').innerHTML=v;
+    }
+    updateTime();

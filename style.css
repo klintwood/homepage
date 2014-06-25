@@ -1,3 +1,7 @@
+body {
+  color: #eee;
+}
+
 /* background image */
 body {
   background-image: url(images/earth.jpg);
@@ -62,22 +66,18 @@ ul#bookmarks {
     width: auto;
 }
 
+#bookmarks a {
+  text-decoration: none;
+  color: #CCC;
+  font-weight: bold;
+  font-size: 16px;
+  font-family: Verdana;
+}
+
 #bookmarks li {
   display: inline;
   list-style-type: none;
   padding-right: 20px;
-
-  width: 100px;
-  height: 100px;
-  background-color: rgba(200, 200, 200, 0.2); 
-  border-radius: 200px;
-  box-shadow: 0px 0px 10px black;
-  background-size: auto 100%;
-  background-attachment: fixed;
-  background-position: center;
-  margin: 20px auto;
-  padding: 5px;
-  position: relative;
 
 }
 
@@ -94,6 +94,8 @@ ul#bookmarks {
   margin: 20px auto;
   padding: 5px;
   position: relative;
+
+  display: none;
 }
 
 div img {
