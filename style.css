@@ -1,18 +1,16 @@
+/* background image */
 body {
-  background-image: url(images/games.jpg);
+  background-image: url(images/earth.jpg);
   background-size: auto 100%;
   background-attachment: fixed;
-  background-position: center;
+  background-position: center; 
 }
 
+/* Search Box */
 #search {
   width: 500px;
-  background-color: rgba(200, 200, 200, 0.2);
+  background-color: rgba(200, 200, 200, 0.7);
   box-shadow: 0px 0px 10px black;
-
-  /*position: fixed;
-  left: 50%;
-  margin-left: -250px;  */
 
   position: relative;
   margin: 20px auto;
@@ -29,42 +27,61 @@ body {
   padding: 5px;
 }
 
-ul {
-  background-color: rgba(200, 200, 200, 0.35); 
+/* Newspages */
+ul.newspage {
+  background-color: rgba(200, 200, 200, 0.7); 
   width: 20%;
   border-radius: 1px;
   padding: 20px;
   list-style-type: none;
   box-shadow: 0px 0px 10px black;
-  font-size: 16px;
   font-weight: bold;
   font-family: Verdana;
-}
-
-#hacker_news a:visited {
-  color: #666;
-}
-
-a {
-  text-decoration: none;
-  color: #111;
-}
-
-ul#hacker_news {
+  
   font-size: 12px;
   width: 500px;
   line-height: 20px; 
 
   margin: 20px auto;
   position: relative; 
-
 }
 
-#list1 {
+.newspage a {
+  text-decoration: none;
+  color: #111;
+}
+
+.newspage a:visited {
+  color: #444;
+}
+
+/* Bookmarks */
+ul#bookmarks {
     margin: 20px auto;
     position: relative;
+    width: auto;
 }
 
+#bookmarks li {
+  display: inline;
+  list-style-type: none;
+  padding-right: 20px;
+
+  width: 100px;
+  height: 100px;
+  background-color: rgba(200, 200, 200, 0.2); 
+  border-radius: 200px;
+  box-shadow: 0px 0px 10px black;
+  background-size: auto 100%;
+  background-attachment: fixed;
+  background-position: center;
+  margin: 20px auto;
+  padding: 5px;
+  position: relative;
+
+}
+
+/* experimental round buttons for future use */
 #spielgrube {
   width: 100px;
   height: 100px;
@@ -85,6 +102,14 @@ div img {
   border-radius: 100px;
 }
 
+/* Rain background sound is disabled for now */
 #rain {
   display: none;
+}
+
+/* Mascot */
+#gulle {
+  z-index: 5;
+  position: absolute;
+  bottom: 10px;
 }
