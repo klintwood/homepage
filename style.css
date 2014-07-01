@@ -123,9 +123,10 @@ div img {
 }
 
 /* Mascot */
-#gulle {
+#mascot {
   z-index: 5;
   position: fixed;
-  bottom: -5px;
+  bottom: -15px;
   left: -5px;
+  height: 700px;
 }
