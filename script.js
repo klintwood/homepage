@@ -177,5 +177,16 @@ function updateTime() {
         var v = hours + ":" + minutes + " ";
         setTimeout("updateTime()",1000);
         document.getElementById('time').innerHTML=v;
-    }
-    updateTime();
+}
+updateTime();
+
+
+
+
+
+
+// Fetch the 5 hottest posts on /r/awww
+  reddit.hot('Android').limit(30).fetch(function(res) {
+    // res contains JSON parsed response from Reddit
+    console.log(res);
+  });
