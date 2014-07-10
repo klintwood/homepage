@@ -185,8 +185,25 @@ updateTime();
 
 
 
-// Fetch the 5 hottest posts on /r/awww
+// Fetch the 5 hottest posts on /r/Android
   reddit.hot('Android').limit(30).fetch(function(res) {
-    // res contains JSON parsed response from Reddit
-    console.log(res);
+    // res contains JSON parsed response from Reddit    
+    var posts = res.data.children;
+
+    // loop through posts and create and entry for each
+    for (var ind in posts) {
+        var post = posts[ind].data;
+        var link = '<a href="http://reddit.com' + post.permalink + '">' + crop_title(post.title) + ' <b>(' + post.num_comments + ')</b></a>';
+        $('ul#reddit_android').append('<li>' + link + '</li>');
+    }
   });
+
+
+  function crop_title(title) {
+    console.log(title.length);
+    if (title.length > 80) {
+        title = title.substr(0, 77);
+        title += "...";
+    }
+    return title;
+  }
