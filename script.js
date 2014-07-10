@@ -64,7 +64,7 @@ function yourFunction(json) {
         var id = item['id'];
         var title = item['title'];
         var comment_count = item['commentCount'];
-        var link = '<a href="https://news.ycombinator.com/item?id=' + id + '">' + title + ' (' + comment_count + ')</a>';
+        var link = '<a href="https://news.ycombinator.com/item?id=' + id + '">' + title + ' <b>(' + comment_count + ')</b></a>';
         $('ul#hacker_news').append('<li>' + link + '</li>');
     }
 }
@@ -193,7 +193,7 @@ updateTime();
     // loop through posts and create and entry for each
     for (var ind in posts) {
         var post = posts[ind].data;
-        var link = '<a href="http://reddit.com' + post.permalink + '">' + crop_title(post.title) + ' <b>(' + post.num_comments + ')</b></a>';
+        var link = '<a href="http://reddit.com' + post.permalink + '" title="' + post.title + '">' + crop_title(post.title) + ' <b>(' + post.num_comments + ')</b></a>';
         $('ul#reddit_android').append('<li>' + link + '</li>');
     }
   });
@@ -201,8 +201,8 @@ updateTime();
 
   function crop_title(title) {
     console.log(title.length);
-    if (title.length > 80) {
-        title = title.substr(0, 77);
+    if (title.length > 70) {
+        title = title.substr(0, 67);
         title += "...";
     }
     return title;

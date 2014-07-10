@@ -73,7 +73,8 @@ ul.newspage {
 }
 
 .newspage a:hover {
-  color: #999;
+
+  font-weight: bold;
 }
 
 /* Bookmarks */
