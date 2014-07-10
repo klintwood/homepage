@@ -3,7 +3,7 @@
 /* background image */
 body {
   background-image: url(images/whiterun.jpg);
-  background-size: auto 100%;
+  background-size: cover;
   background-attachment: fixed;
   background-position: center; 
 }
@@ -38,10 +38,10 @@ body {
   top: 10px;
   right: 10px;
 
-   color: #CCC;
+  color: #CCC;
   font-weight: bold;
   font-size: 16px;
-  font-family: Arial;;
+  font-family: Arial;
 }
 
 /* Newspages */
@@ -127,6 +127,7 @@ div img {
   z-index: 5;
   position: fixed;
   bottom: -15px;
-  left: -5px;
-  height: 700px;
+  right: -5px;
+  height: 500px;
+  pointer-events: none;
 }
