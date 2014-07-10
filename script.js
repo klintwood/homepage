@@ -182,7 +182,7 @@ updateTime();
 
 
 // Fetch the 30 hottest posts on /r/Android
-reddit.hot('Android').limit(100).fetch(function(res) {
+reddit.hot('Android').limit(30).fetch(function(res) {
     // res contains JSON parsed response from Reddit    
     var posts = res.data.children;
 

@@ -140,3 +140,7 @@ div img {
 span.remove_news {
   cursor: pointer;
 }
+
+p {
+  line-height: 15px;
+}
