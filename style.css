@@ -47,20 +47,20 @@ body {
 /* Newspages */
 ul.newspage {
   background-color: rgba(200, 200, 200, 0.7); 
-  width: 20%;
   border-radius: 1px;
   padding: 20px;
   list-style-type: none;
   box-shadow: 0px 0px 10px black;
-  font-weight: bold;
   font-family: Verdana;
   
   font-size: 12px;
-  width: 500px;
+  width: 600px;
   line-height: 20px; 
 
   margin: 20px auto;
   position: relative; 
+
+  display: inline-block; /* display lists next to each other */
 }
 
 .newspage a {
