@@ -181,29 +181,43 @@ function updateTime() {
 updateTime();
 
 
-
-
-
-
-// Fetch the 5 hottest posts on /r/Android
-  reddit.hot('Android').limit(30).fetch(function(res) {
+// Fetch the 30 hottest posts on /r/Android
+reddit.hot('Android').limit(100).fetch(function(res) {
     // res contains JSON parsed response from Reddit    
     var posts = res.data.children;
 
     // loop through posts and create and entry for each
     for (var ind in posts) {
         var post = posts[ind].data;
-        var link = '<a href="http://reddit.com' + post.permalink + '" title="' + post.title + '">' + crop_title(post.title) + ' <b>(' + post.num_comments + ')</b></a>';
+        console.log(post);
+        var link = '<p id="' + post.id + '"><span class="remove_news"> X </span><a href="http://reddit.com' + post.permalink + '" title="' + post.title + '">' + crop_title(post.title) + ' <b>(' + post.num_comments + ')</b></a></p>';
         $('ul#reddit_android').append('<li>' + link + '</li>');
+
     }
-  });
+
+    $( "span" ).click(function() {
+        console.log($( this ).parent().attr("id"))
+        $( this ).parent().slideUp();
+    });
+});
 
 
-  function crop_title(title) {
-    console.log(title.length);
+function crop_title(title) {
+    //console.log(title.length);
     if (title.length > 70) {
         title = title.substr(0, 67);
         title += "...";
     }
     return title;
+}
+
+
+/*
+http://www.webdirections.org/blog/webstorage-persistent-client-side-data-storage/
+http://html5doctor.com/storing-data-the-simple-html5-way-and-a-few-tricks-you-might-not-have-known/
+http://diveintohtml5.info/storage.html
+  if (window.sessionStorage) {
+    console.log("success");
   }
+
+  */

@@ -136,3 +136,7 @@ div img {
   height: 500px;
   pointer-events: none;
 }
+
+span.remove_news {
+  cursor: pointer;
+}
