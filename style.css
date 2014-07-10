@@ -2,7 +2,7 @@
 
 /* background image */
 body {
-  background-image: url(images/whiterun.jpg);
+  background-image: url(images/street.jpg);
   background-size: auto 100%;
   background-attachment: fixed;
   background-position: center; 
@@ -72,6 +72,10 @@ ul.newspage {
   color: #444;
 }
 
+.newspage a:hover {
+  color: #999;
+}
+
 /* Bookmarks */
 ul#bookmarks {
     margin: 20px auto;
@@ -127,6 +131,6 @@ div img {
   z-index: 5;
   position: fixed;
   bottom: -15px;
-  left: -5px;
-  height: 700px;
+  right: -5px;
+  height: 500px;
 }
