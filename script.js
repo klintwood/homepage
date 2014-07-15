@@ -13,9 +13,10 @@ engines["a"] = {  "title" : "Amazon", "keyword" : "a",
 engines["p"] = {  "title" : "Pons", "keyword" : "p",
                 "string" : " http://de.pons.com/%C3%BCbersetzung?q=#{query}&l=deen" };
 
-https://www.google.de/maps/search/Osterfeldstr.+30-40/@51.1758057,10.4541194,6z/data=!3m1!4b1
-
+// select Google by default
 var selectedEngine = engines["g"];
+
+// fire search
 
 function search(caller) {
     var query = caller.value;
@@ -26,7 +27,7 @@ var sucher = document.getElementById("sucher");
 sucher.addEventListener("keydown", function (e) {
     if (e.keyCode === 13) {  // ENTER
         var input = this.value;
-        if (input.match(/^\S*\.\S*$/))     // if URL entered, redirect
+        if (input.match(/^\S*\.\S*$/))     // if input looks like URL, redirect
             if (input.match(/^https?:\/\//))             // only add "http://" if not already in input
                 window.location = input;
             else
@@ -38,7 +39,6 @@ sucher.addEventListener("keydown", function (e) {
         selectedEngine = engines[this.value];
         this.value = engines[this.value]["title"];
     }
-    //console.log(selectedEngine["string"].replace("#{query}", this.value));
 });
 
 var suchers = document.getElementById("suchers");
@@ -49,7 +49,6 @@ suchers.addEventListener("keydown", function (e) {
     if (e.keyCode === 9) {  // TAB
         document.getElementById("linkasd").focus(); // hack because focus jumps to next field on TAB
     }
-    //console.log(selectedEngine["string"].replace("#{query}", this.value));
 });
 
 
@@ -70,102 +69,8 @@ function yourFunction(json) {
 }
 
 
-// http://usamadar.com/2012/06/24/getting-around-browsers-same-origin-policy-sop-with-proxies-script-injection-jsonp-and-cors/
-//httpGet('http://api.ihackernews.com/page?format=jsonp&callback=yourFunction');
-
-
-
-
-
-
-/*
-
-
-
-
-
-
-
-function httpGet(theUrl)
-{
-    var xmlHttp = null;
-
-    xmlHttp = new XMLHttpRequest();
-    xmlHttp.open( "GET", theUrl, false );
-    xmlHttp.send( null );
-    return xmlHttp.responseText;
-}
-
- function loadXMLDoc(theURL)
-    {
-        if (window.XMLHttpRequest)
-        {// code for IE7+, Firefox, Chrome, Opera, Safari
-            xmlhttp=new XMLHttpRequest();
-        }
-        else
-        {// code for IE6, IE5
-            xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-        }
-        xmlhttp.onreadystatechange=function()
-        {
-            if (xmlhttp.readyState==4 && xmlhttp.status==200)
-            {
-                alert(xmlhttp.responseText);
-            }
-        }
-        xmlhttp.open("GET",theURL,true);
-        xmlhttp.send();
-    }
-
-
-
-
-
-var latest_stories = httpGet('https://hn.algolia.com/api/v1/search_by_date?tags=story');
-alert(typeof JSON.parse(latest_stories['hits']));
-
-
-
-
-
-
-var frontpage = loadXMLDoc('http://whateverorigin.org/get?url=https://news.ycombinator.com/');
-var posts = frontpage.match(/https:\/\/news.ycombinator.com\/item\?id=(\d*)/);
-alert(posts);
-
-
-
-$.ajax({
-    url: "http://api.ihackernews.com/page",
-    data: null,
-    success: function(data) {
-       alert('page content: ' + data);
-    },
-    dataType: 'jsonp'
-});
-
-
-
-var request = makeHttpObject();
-request.open("GET", "http://api.ihackernews.com/page", true);
-alert(typeof request.responseText);
-
-// http://eloquentjavascript.net/chapter14.html
-function makeHttpObject() {
-  try {return new XMLHttpRequest();}
-  catch (error) {}
-  try {return new ActiveXObject("Msxml2.XMLHTTP");}
-  catch (error) {}
-  try {return new ActiveXObject("Microsoft.XMLHTTP");}
-  catch (error) {}
-
-  throw new Error("Could not create HTTP request object.");
-}
-*/
-
-
+// Simple time display
 // taken from: http://stackoverflow.com/questions/6787374/how-to-display-system-time
-
 function updateTime() {
         var currentTime = new Date();
         var hours = currentTime.getHours();
@@ -175,12 +80,34 @@ function updateTime() {
         }
 
         var v = hours + ":" + minutes + " ";
-        setTimeout("updateTime()",1000);
+        setTimeout("updateTime()", 1000);
         document.getElementById('time').innerHTML=v;
 }
 updateTime();
 
 
+
+
+// locally store Pinned / Hidden items
+/*
+http://www.webdirections.org/blog/webstorage-persistent-client-side-data-storage/
+http://html5doctor.com/storing-data-the-simple-html5-way-and-a-few-tricks-you-might-not-have-known/
+http://diveintohtml5.info/storage.html */
+if (window.localStorage) {
+    //console.log("success");
+    //window.localStorage.setItem("android", hiddenAndroids);
+    //console.log(window.localStorage.getItem("android"));
+    //window.localStorage.clear();
+    var hiddenAndroids = JSON.parse(window.localStorage.getItem("android"));
+} 
+
+if (!hiddenAndroids) {
+    var hiddenAndroids = [];
+}
+
+
+
+// Reddit page
 // Fetch the 30 hottest posts on /r/Android
 reddit.hot('Android').limit(30).fetch(function(res) {
     // res contains JSON parsed response from Reddit    
@@ -189,15 +116,23 @@ reddit.hot('Android').limit(30).fetch(function(res) {
     // loop through posts and create and entry for each
     for (var ind in posts) {
         var post = posts[ind].data;
-        console.log(post);
-        var link = '<p id="' + post.id + '"><span class="remove_news"> X </span><a href="http://reddit.com' + post.permalink + '" title="' + post.title + '">' + crop_title(post.title) + ' <b>(' + post.num_comments + ')</b></a></p>';
-        $('ul#reddit_android').append('<li>' + link + '</li>');
+        //console.log(post.id);
+        //console.log(hiddenAndroids);
+        if (hiddenAndroids.indexOf(post.id) == -1) { // Only show if id not found in hidden list
+            //console.log(post);
+            var link = '<p id="' + post.id + '"><span class="remove_news"> X </span><a href="http://reddit.com' + post.permalink + '" title="' + post.title + '">' + crop_title(post.title) + ' <b>(' + post.num_comments + ')</b></a></p>';
+            $('ul#reddit_android').append('<li>' + link + '</li>');
+        }
 
     }
-
-    $( "span" ).click(function() {
-        console.log($( this ).parent().attr("id"))
-        $( this ).parent().slideUp();
+    // Hide item on click event
+    $("span").click(function() {
+        hiddenAndroids.push($(this).parent().attr("id"));
+        window.localStorage.setItem("android", JSON.stringify(hiddenAndroids));
+        //console.log(hiddenAndroids);
+        //console.log($(this).parent().attr("id"));
+        //console.log(hiddenAndroids);
+        $(this).parent().slideUp();
     });
 });
 
@@ -212,12 +147,8 @@ function crop_title(title) {
 }
 
 
-/*
-http://www.webdirections.org/blog/webstorage-persistent-client-side-data-storage/
-http://html5doctor.com/storing-data-the-simple-html5-way-and-a-few-tricks-you-might-not-have-known/
-http://diveintohtml5.info/storage.html
-  if (window.sessionStorage) {
-    console.log("success");
-  }
 
-  */
+
+
+
+  
