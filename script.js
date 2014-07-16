@@ -203,9 +203,14 @@ function addSubreddit(subName) {
     
 }
 
-addSubreddit("pcgaming");
 addSubreddit("android");
+addSubreddit("androidwear");
 addSubreddit("oculus");
+addSubreddit("pcgaming");
+addSubreddit("gamingpc");
+addSubreddit("pcmasterrace");
+addSubreddit("scala");
+
 
 
 function crop_title(title) {
