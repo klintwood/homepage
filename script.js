@@ -111,6 +111,7 @@ if (!hiddenOculus) {
 
 // Reddit page
 // Fetch the 30 hottest posts on /r/Android
+/*
 reddit.hot('Android').limit(30).fetch(function(res) {
     // res contains JSON parsed response from Reddit    
     var posts = res.data.children;
@@ -166,7 +167,45 @@ reddit.hot('Oculus').limit(30).fetch(function(res) {
         //console.log(hiddenAndroids);
         $(this).parent().slideUp();
     });
-});
+});*/
+
+// generalized reddit function
+function addSubreddit(subName) {
+    if (window.localStorage) {
+        //window.localStorage.clear();
+        var hiddenItems = JSON.parse(window.localStorage.getItem(subName));
+    } 
+
+    if (!hiddenItems) {
+        var hiddenItems = [];
+    }
+    reddit.hot(subName).limit(30).fetch(function(res) {
+        // res contains JSON parsed response from Reddit    
+        var posts = res.data.children;
+
+        // loop through posts and create and entry for each
+        for (var ind in posts) {
+            var post = posts[ind].data;
+
+            if (hiddenItems.indexOf(post.id) == -1) { // Only show if id not found in hidden list
+                var link = '<p id="' + post.id + '"><span class="remove_news"> X </span><a href="http://reddit.com' + post.permalink + '" title="' + post.title + '">' + crop_title(post.title) + ' <b>(' + post.num_comments + ')</b></a></p>';
+                $(('ul#reddit ul#' + subName)).append('<li>' + link + '</li>');
+            }
+
+        }
+        // Hide item on click event
+        $("span").click(function() {
+            hiddenItems.push($(this).parent().attr("id"));
+            window.localStorage.setItem(subName, JSON.stringify(hiddenItems));
+            $(this).parent().slideUp();
+        });
+    });
+    
+}
+
+addSubreddit("pcgaming");
+addSubreddit("android");
+addSubreddit("oculus");
 
 
 function crop_title(title) {
