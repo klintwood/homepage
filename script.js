@@ -94,15 +94,17 @@ http://www.webdirections.org/blog/webstorage-persistent-client-side-data-storage
 http://html5doctor.com/storing-data-the-simple-html5-way-and-a-few-tricks-you-might-not-have-known/
 http://diveintohtml5.info/storage.html */
 if (window.localStorage) {
-    //console.log("success");
-    //window.localStorage.setItem("android", hiddenAndroids);
-    //console.log(window.localStorage.getItem("android"));
     //window.localStorage.clear();
     var hiddenAndroids = JSON.parse(window.localStorage.getItem("android"));
+    var hiddenOculus = JSON.parse(window.localStorage.getItem("oculus"));
 } 
 
 if (!hiddenAndroids) {
     var hiddenAndroids = [];
+}
+
+if (!hiddenOculus) {
+    var hiddenOculus = [];
 }
 
 
@@ -121,7 +123,8 @@ reddit.hot('Android').limit(30).fetch(function(res) {
         if (hiddenAndroids.indexOf(post.id) == -1) { // Only show if id not found in hidden list
             //console.log(post);
             var link = '<p id="' + post.id + '"><span class="remove_news"> X </span><a href="http://reddit.com' + post.permalink + '" title="' + post.title + '">' + crop_title(post.title) + ' <b>(' + post.num_comments + ')</b></a></p>';
-            $('ul#reddit_android').append('<li>' + link + '</li>');
+         //   $('ul#reddit').append('<li>' + link + '</li>');
+            $('ul#reddit ul#android').append('<li>' + link + '</li>');
         }
 
     }
@@ -129,6 +132,35 @@ reddit.hot('Android').limit(30).fetch(function(res) {
     $("span").click(function() {
         hiddenAndroids.push($(this).parent().attr("id"));
         window.localStorage.setItem("android", JSON.stringify(hiddenAndroids));
+        //console.log(hiddenAndroids);
+        //console.log($(this).parent().attr("id"));
+        //console.log(hiddenAndroids);
+        $(this).parent().slideUp();
+    });
+});
+// Oculus
+reddit.hot('Oculus').limit(30).fetch(function(res) {
+    // res contains JSON parsed response from Reddit    
+    var posts = res.data.children;
+
+    // loop through posts and create and entry for each
+    for (var ind in posts) {
+        var post = posts[ind].data;
+        //console.log(post.id);
+        //console.log(hiddenAndroids);
+        if (hiddenOculus.indexOf(post.id) == -1) { // Only show if id not found in hidden list
+            //console.log(post);
+            var link = '<p id="' + post.id + '"><span class="remove_news"> X </span><a href="http://reddit.com' + post.permalink + '" title="' + post.title + '">' + crop_title(post.title) + ' <b>(' + post.num_comments + ')</b></a></p>';
+          //  $('ul#reddit').append('<li>' + link + '</li>');
+            $('ul#reddit ul#oculus').append('<li>' + link + '</li>');
+        }
+
+    }
+    // Hide item on click event
+    $("span").click(function() {
+        hiddenOculus.push($(this).parent().attr("id"));
+        window.localStorage.setItem("oculus", JSON.stringify(hiddenOculus
+));
         //console.log(hiddenAndroids);
         //console.log($(this).parent().attr("id"));
         //console.log(hiddenAndroids);

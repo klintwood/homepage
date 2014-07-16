@@ -2,7 +2,7 @@
 
 /* background image */
 body {
-  background-image: url(images/street.jpg);
+  background-image: url(images/portal.jpg);
   background-size: cover;
   background-attachment: fixed;
   background-position: center; 
@@ -75,6 +75,12 @@ ul.newspage {
 .newspage a:hover {
 
   font-weight: bold;
+}
+
+/* Reddit specific */
+ul.newspage ul {
+  padding: 20px;
+  list-style-type: none;
 }
 
 /* Bookmarks */
