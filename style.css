@@ -1,8 +1,8 @@
 
 
 /* background image */
-body {
-  background-image: url(images/portal.jpg);
+body, #search-bg {
+  background-image: url(images/whiterun.jpg);
   background-size: cover;
   background-attachment: fixed;
   background-position: center; 
@@ -46,7 +46,7 @@ body {
 
 /* Newspages */
 ul.newspage {
-  background-color: rgba(200, 200, 200, 0.7); 
+  background-color: rgba(200, 200, 200, 0.35); 
   border-radius: 1px;
   padding: 20px;
   list-style-type: none;
@@ -58,9 +58,37 @@ ul.newspage {
   line-height: 20px; 
 
   margin: 20px auto;
-  position: relative; 
+  position: relative;
+  z-index: 101; 
 
   display: inline-block; /* display lists next to each other */
+}
+
+/* Blur taken from http://jordanhollinger.com/2014/01/29/css-gaussian-blur-behind-a-translucent-box# */
+#search-bg {
+  /* Absolutely position it, but stretch it to all four corners, then put it just behind #search's z-index */
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  z-index: 99;
+  /* Pull the background 70px higher to the same place as #bg's */
+  background-position: center -70px;
+  filter: blur(10px);
+  -webkit-filter: blur(10px);
+  -moz-filter: blur(10px);
+  filter: url('/media/blur.svg#blur'); /* for Firefox */
+}
+
+#search-container {
+  position: relative;
+  width: 600px;
+}
+
+.newspage ul {
+  position: relative;
+  z-index: 101;
 }
 
 .newspage a {
