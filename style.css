@@ -2,7 +2,7 @@
 
 /* background image */
 body, #search-bg {
-  background-image: url(images/whiterun.jpg);
+  background-image: url(images/fuji.jpg);
   background-size: cover;
   background-attachment: fixed;
   background-position: center; 
@@ -46,15 +46,15 @@ body, #search-bg {
 
 /* Newspages */
 ul.newspage {
-  background-color: rgba(200, 200, 200, 0.35); 
+  background-color: rgba(255, 255, 255, 0.35); 
   border-radius: 1px;
   padding: 20px;
   list-style-type: none;
   box-shadow: 0px 0px 10px black;
   font-family: Verdana;
   
-  font-size: 12px;
-  width: 600px;
+  font-size: 14px;
+  width: 700px;
   line-height: 20px; 
 
   margin: 20px auto;
