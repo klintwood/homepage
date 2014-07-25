@@ -24,14 +24,12 @@
 
 /* Time */
 #time {
-  color: #eee;
-
   z-index: 5;
   position: absolute;
   top: 10px;
   right: 10px;
 
-  color: #CCC;
+  color: #eee;
   font-weight: bold;
   font-size: 16px;
   font-family: Arial;
@@ -126,7 +124,7 @@ ul#bookmarks {
 
 #bookmarks a {
   text-decoration: none;
-  color: #CCC;
+  color: #ddd;
   font-weight: bold;
   font-size: 16px;
   font-family: Verdana;
@@ -171,9 +169,8 @@ div img {
 #mascot {
   z-index: 105;
   position: fixed;
-  bottom: -15px;
-  right: -5px;
-  height: 200px;
+  bottom: 0px;
+  right: 0px;
   pointer-events: none;
 }
 
