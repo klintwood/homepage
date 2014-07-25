@@ -57,6 +57,11 @@ ul.newspage {
   display: inline-block; /* display lists next to each other */
 }
 
+#news {
+  width: 700px;
+  margin: auto;
+}
+
 /* Blur taken from http://jordanhollinger.com/2014/01/29/css-gaussian-blur-behind-a-translucent-box# */
 #blur-bg {
   /* Absolutely position it, but stretch it to all four corners, then put it just behind #search's z-index */
@@ -116,7 +121,7 @@ ul.newspage ul {
 ul#bookmarks {
     margin: 20px auto;
     position: relative;
-    width: 1020px;
+    width: 800px;
 }
 
 #bookmarks a {
@@ -164,7 +169,7 @@ div img {
 
 /* Mascot */
 #mascot {
-  z-index: 5;
+  z-index: 105;
   position: fixed;
   bottom: -15px;
   right: -5px;
