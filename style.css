@@ -37,57 +37,21 @@
 
 /* Newspages */
 ul.newspage {
-  background-color: rgba(255, 255, 255, 0.35); 
-  border-radius: 1px;
-  padding: 20px;
-  list-style-type: none;
-  box-shadow: 0px 0px 10px black;
-  font-family: Verdana;
-  
-  font-size: 14px;
   width: 700px;
-  line-height: 20px; 
-
-  margin: 20px auto;
   position: relative;
   z-index: 101; 
-
+  padding: 20px;
+  margin: 20px auto;
   display: inline-block; /* display lists next to each other */
-}
+  
+  font-family: Verdana;
+  font-size: 14px;
+  line-height: 20px; 
 
-#news {
-  width: 700px;
-  margin: auto;
-}
-
-/* Blur taken from http://jordanhollinger.com/2014/01/29/css-gaussian-blur-behind-a-translucent-box# */
-#blur-bg {
-  /* Absolutely position it, but stretch it to all four corners, then put it just behind #search's z-index */
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  bottom: 0px;
-  left: 0px;
-  z-index: 99;
-  /* Pull the background 70px higher to the same place as #bg's */
-  background-position: center -70px;
-  filter: blur(10px);
-  -webkit-filter: blur(10px);
-  -moz-filter: blur(10px);
-  filter: url('/media/blur.svg#blur'); /* for Firefox */
-}
-
-/* background image */
-body, #blur-bg {
-  background-image: url(images/worldcup.jpg);
-  background-size: cover;
-  background-attachment: fixed;
-  background-position: center; 
-}
-
-#blur-container {
-  position: relative;
-  width: 740px;
+  background-color: rgba(255, 255, 255, 0.35); 
+  border-radius: 1px;
+  list-style-type: none;
+  box-shadow: 0px 0px 10px black;
 }
 
 .newspage ul {
@@ -108,6 +72,42 @@ body, #blur-bg {
 
   font-weight: bold;
 }
+
+#news {
+  width: 700px;
+  margin: auto;
+}
+
+/* Blur taken from http://jordanhollinger.com/2014/01/29/css-gaussian-blur-behind-a-translucent-box# */
+#blur-bg {
+  /* Absolutely position it, but stretch it to all four corners, then put it just behind #search's z-index */
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  z-index: 99;
+  /* Pull the background 70px higher to the same place as #bg's */
+  background-position: center -70px;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  filter: url('/media/blur.svg#blur'); /* for Firefox */
+}
+
+/* background image */
+body, #blur-bg {
+  background-image: url(images/worldcup.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center; 
+}
+
+#blur-container {
+  position: relative;
+  width: 740px;
+}
+
 
 /* Reddit specific */
 ul.newspage ul {
