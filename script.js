@@ -209,7 +209,7 @@ addSubreddit("oculus");
 addSubreddit("pcgaming");
 addSubreddit("gamingpc");
 addSubreddit("pcmasterrace");
-addSubreddit("scala");
+addSubreddit("oneplus");
 
 
 

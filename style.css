@@ -1,12 +1,5 @@
 
 
-/* background image */
-body, #search-bg {
-  background-image: url(images/fuji.jpg);
-  background-size: cover;
-  background-attachment: fixed;
-  background-position: center; 
-}
 
 /* Search Box */
 #search {
@@ -65,7 +58,7 @@ ul.newspage {
 }
 
 /* Blur taken from http://jordanhollinger.com/2014/01/29/css-gaussian-blur-behind-a-translucent-box# */
-#search-bg {
+#blur-bg {
   /* Absolutely position it, but stretch it to all four corners, then put it just behind #search's z-index */
   position: absolute;
   top: 0px;
@@ -81,9 +74,17 @@ ul.newspage {
   filter: url('/media/blur.svg#blur'); /* for Firefox */
 }
 
-#search-container {
+/* background image */
+body, #blur-bg {
+  background-image: url(images/worldcup.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center; 
+}
+
+#blur-container {
   position: relative;
-  width: 600px;
+  width: 740px;
 }
 
 .newspage ul {
