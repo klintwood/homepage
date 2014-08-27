@@ -44,11 +44,11 @@ ul.newspage {
   margin: 20px auto;
   display: inline-block; /* display lists next to each other */
   
-  font-family: Verdana;
-  font-size: 14px;
+  font-family: Arial;
+  font-size: 16px;
   line-height: 20px; 
 
-  background-color: rgba(255, 255, 255, 0.35); 
+  background-color: rgba(255, 255, 255, 0.45); 
   border-radius: 1px;
   list-style-type: none;
   box-shadow: 0px 0px 10px black;
@@ -89,9 +89,9 @@ ul.newspage {
   z-index: 99;
   /* Pull the background 70px higher to the same place as #bg's */
   background-position: center -70px;
-  filter: blur(5px);
-  -webkit-filter: blur(5px);
-  -moz-filter: blur(5px);
+  filter: blur(7px);
+  -webkit-filter: blur(7px);
+  -moz-filter: blur(7px);
   filter: url('/media/blur.svg#blur'); /* for Firefox */
 }
 
